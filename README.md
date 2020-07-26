@@ -44,7 +44,8 @@ Build and list result:
 ```sh
 bazel build //claat:examples # BUILD.bazel above is located in //claat here.
 
-ls $(bazel info bazel-genfiles)/<label>/examples.tar
+# /claat/examples.tar comes from the fact that we are inside //claat and we created //claat:example.tar
+ls $(bazel info bazel-genfiles)/claat/examples.tar
 # Output:
 # bazel-out/darwin-fastbuild/bin/claat/examples.tar
 ```

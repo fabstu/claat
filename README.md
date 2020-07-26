@@ -1,8 +1,21 @@
 # Rule for generating html codelab
 
+Known limitations:
+
+- only uses markdown files, no embedding any content
+
 Inside WORKSPACE:
 
 ```s
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+
+http_archive(
+    name = "com_github_googlecodelabs_tools",
+    sha256 = "8992b65ec5d98725352601b6fbbbf9585fa784a03c02e8dd927b23da3a84d39f",
+    strip_prefix = "claat-2.2.1",
+    urls = ["https://github.com/fabstu/claat/archive/v2.2.1.zip"],
+)
+
 load("@com_github_googlecodelabs_tools//claat:claat.bzl", "claat_dependencies")
 
 claat_dependencies()
